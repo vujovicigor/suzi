@@ -413,6 +413,11 @@ img {
   border-bottom: 1px solid #d0d0d0;
   padding: 15px 0;
 }
+.home--part-2 .overflow-border-slika {
+  width: 20%;
+  height: 100%;
+  float: left;
+}
 .home--part-2 .naslov {
   font-size: 14px;
   font-weight: bold;
