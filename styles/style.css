@@ -423,6 +423,7 @@ img {
   font-weight: bold;
   line-height: 1.71;
   color: #000000;
+  display: flex;
   margin-right: 10px;
 }
 .home--part2 {
