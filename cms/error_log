@@ -1,0 +1,70 @@
+[21-Nov-2018 09:09:40 Europe/Belgrade] PHP Notice:  Undefined index: id in /home/suzisaee/public_html/cms/image.php on line 3
+[21-Nov-2018 09:09:54 Europe/Belgrade] PHP Notice:  Undefined index: id in /home/suzisaee/public_html/cms/image.php on line 3
+[21-Nov-2018 14:54:41 Europe/Belgrade] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 no such table: _sql in /home/suzisaee/public_html/cms/engine.php:67
+Stack trace:
+#0 /home/suzisaee/public_html/cms/engine.php(67): PDO->prepare('\n            se...')
+#1 /home/suzisaee/public_html/cms/engine.php(54): api('Akcije', Array)
+#2 /home/suzisaee/public_html/cms/twig.php(44): fetch('Akcije', Array)
+#3 /home/suzisaee/public_html/cms/twigcache/0b/0b2adddf64cc79e02325fd1a2f35af2d630ec3db1ff8f638a9e9efcda87e6fbf.php(42): {closure}('Akcije')
+#4 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(189): __TwigTemplate_07e7e80837e1deae27956a80b0a0d426a4872bb5a951ebaec05ac094c001aa1a->block_content(Array, Array)
+#5 /home/suzisaee/public_html/cms/twigcache/1f/1f202cc2ee42bd06a347623c9572eda59b9b4ef53ea65ab3777a657f4352a6d2.php(162): Twig_Template->displayBlock('content', Array, Array)
+#6 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(390): __TwigTemplate_860484b2753d9dd9ee745af2e087d8fa8fc91d33818187069374f3d718da in /home/suzisaee/public_html/twigtemplates/akcije.twig on line 9
+[21-Nov-2018 14:54:45 Europe/Belgrade] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 no such table: _sql in /home/suzisaee/public_html/cms/engine.php:67
+Stack trace:
+#0 /home/suzisaee/public_html/cms/engine.php(67): PDO->prepare('\n            se...')
+#1 /home/suzisaee/public_html/cms/engine.php(54): api('Akcije', Array)
+#2 /home/suzisaee/public_html/cms/twig.php(44): fetch('Akcije', Array)
+#3 /home/suzisaee/public_html/cms/twigcache/0b/0b2adddf64cc79e02325fd1a2f35af2d630ec3db1ff8f638a9e9efcda87e6fbf.php(42): {closure}('Akcije')
+#4 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(189): __TwigTemplate_07e7e80837e1deae27956a80b0a0d426a4872bb5a951ebaec05ac094c001aa1a->block_content(Array, Array)
+#5 /home/suzisaee/public_html/cms/twigcache/1f/1f202cc2ee42bd06a347623c9572eda59b9b4ef53ea65ab3777a657f4352a6d2.php(162): Twig_Template->displayBlock('content', Array, Array)
+#6 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(390): __TwigTemplate_860484b2753d9dd9ee745af2e087d8fa8fc91d33818187069374f3d718da in /home/suzisaee/public_html/twigtemplates/akcije.twig on line 9
+[21-Nov-2018 14:56:22 Europe/Belgrade] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 no such table: _sql in /home/suzisaee/public_html/cms/engine.php:67
+Stack trace:
+#0 /home/suzisaee/public_html/cms/engine.php(67): PDO->prepare('\n            se...')
+#1 /home/suzisaee/public_html/cms/engine.php(54): api('IstaknutaAkcija', Array)
+#2 /home/suzisaee/public_html/cms/twig.php(44): fetch('IstaknutaAkcija', Array)
+#3 /home/suzisaee/public_html/cms/twigcache/58/588350b394fac5b683d0336b68f2e43ec8dc2e35aa7acdf61d1a1cc3ce406db5.php(40): {closure}('IstaknutaAkcija')
+#4 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(189): __TwigTemplate_0a523d48bf0ce0032643234a5906c08983af2255df6b044fad0eb455d4eb95f9->block_content(Array, Array)
+#5 /home/suzisaee/public_html/cms/twigcache/1f/1f202cc2ee42bd06a347623c9572eda59b9b4ef53ea65ab3777a657f4352a6d2.php(162): Twig_Template->displayBlock('content', Array, Array)
+#6 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(390): __TwigTemplate_860484b2753d9dd9ee745af2e087d8fa8 in /home/suzisaee/public_html/twigtemplates/index.twig on line 7
+[21-Nov-2018 14:56:27 Europe/Belgrade] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 no such table: _sql in /home/suzisaee/public_html/cms/engine.php:67
+Stack trace:
+#0 /home/suzisaee/public_html/cms/engine.php(67): PDO->prepare('\n            se...')
+#1 /home/suzisaee/public_html/cms/engine.php(54): api('IstaknutaAkcija', Array)
+#2 /home/suzisaee/public_html/cms/twig.php(44): fetch('IstaknutaAkcija', Array)
+#3 /home/suzisaee/public_html/cms/twigcache/58/588350b394fac5b683d0336b68f2e43ec8dc2e35aa7acdf61d1a1cc3ce406db5.php(40): {closure}('IstaknutaAkcija')
+#4 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(189): __TwigTemplate_0a523d48bf0ce0032643234a5906c08983af2255df6b044fad0eb455d4eb95f9->block_content(Array, Array)
+#5 /home/suzisaee/public_html/cms/twigcache/1f/1f202cc2ee42bd06a347623c9572eda59b9b4ef53ea65ab3777a657f4352a6d2.php(162): Twig_Template->displayBlock('content', Array, Array)
+#6 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(390): __TwigTemplate_860484b2753d9dd9ee745af2e087d8fa8 in /home/suzisaee/public_html/twigtemplates/index.twig on line 7
+[21-Nov-2018 14:57:36 Europe/Belgrade] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 no such table: _sql in /home/suzisaee/public_html/cms/engine.php:67
+Stack trace:
+#0 /home/suzisaee/public_html/cms/engine.php(67): PDO->prepare('\n            se...')
+#1 /home/suzisaee/public_html/cms/engine.php(54): api('IstaknutaAkcija', Array)
+#2 /home/suzisaee/public_html/cms/twig.php(44): fetch('IstaknutaAkcija', Array)
+#3 /home/suzisaee/public_html/cms/twigcache/58/588350b394fac5b683d0336b68f2e43ec8dc2e35aa7acdf61d1a1cc3ce406db5.php(40): {closure}('IstaknutaAkcija')
+#4 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(189): __TwigTemplate_0a523d48bf0ce0032643234a5906c08983af2255df6b044fad0eb455d4eb95f9->block_content(Array, Array)
+#5 /home/suzisaee/public_html/cms/twigcache/1f/1f202cc2ee42bd06a347623c9572eda59b9b4ef53ea65ab3777a657f4352a6d2.php(162): Twig_Template->displayBlock('content', Array, Array)
+#6 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(390): __TwigTemplate_860484b2753d9dd9ee745af2e087d8fa8 in /home/suzisaee/public_html/twigtemplates/index.twig on line 7
+[21-Nov-2018 14:57:53 Europe/Belgrade] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 no such table: _sql in /home/suzisaee/public_html/cms/engine.php:67
+Stack trace:
+#0 /home/suzisaee/public_html/cms/engine.php(67): PDO->prepare('\n            se...')
+#1 /home/suzisaee/public_html/cms/engine.php(54): api('IstaknutaAkcija', Array)
+#2 /home/suzisaee/public_html/cms/twig.php(44): fetch('IstaknutaAkcija', Array)
+#3 /home/suzisaee/public_html/cms/twigcache/58/588350b394fac5b683d0336b68f2e43ec8dc2e35aa7acdf61d1a1cc3ce406db5.php(40): {closure}('IstaknutaAkcija')
+#4 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(189): __TwigTemplate_0a523d48bf0ce0032643234a5906c08983af2255df6b044fad0eb455d4eb95f9->block_content(Array, Array)
+#5 /home/suzisaee/public_html/cms/twigcache/1f/1f202cc2ee42bd06a347623c9572eda59b9b4ef53ea65ab3777a657f4352a6d2.php(162): Twig_Template->displayBlock('content', Array, Array)
+#6 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Template.php(390): __TwigTemplate_860484b2753d9dd9ee745af2e087d8fa8 in /home/suzisaee/public_html/twigtemplates/index.twig on line 7
+[29-Nov-2018 17:46:11 Europe/Belgrade] PHP Fatal error:  Uncaught Twig_Error_Loader: The "/home/suzisaee/public_html/twigtemplates" directory does not exist ("/home/suzisaee/public_html/twigtemplates"). in /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Loader/Filesystem.php:101
+Stack trace:
+#0 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Loader/Filesystem.php(82): Twig_Loader_Filesystem->addPath('/home/suzisaee/...', '__main__')
+#1 /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Loader/Filesystem.php(40): Twig_Loader_Filesystem->setPaths(Array)
+#2 /home/suzisaee/public_html/cms/twig.php(36): Twig_Loader_Filesystem->__construct('/home/suzisaee/...')
+#3 {main}
+  thrown in /home/suzisaee/public_html/cms/vendor/twig/twig/lib/Twig/Loader/Filesystem.php on line 101
+[01-Dec-2018 15:14:47 Europe/Belgrade] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1 no such table: Test in /home/suzisaee/public_html/cms/engine.php:156
+Stack trace:
+#0 /home/suzisaee/public_html/cms/engine.php(156): PDO->prepare('SELECT _m.*  FR...')
+#1 /home/suzisaee/public_html/cms/engine.php(49): api('SELECT _m.*  FR...', Array)
+#2 /home/suzisaee/public_html/cms/api.php(56): apiJson('Test', Array)
+#3 {main}
+  thrown in /home/suzisaee/public_html/cms/engine.php on line 156

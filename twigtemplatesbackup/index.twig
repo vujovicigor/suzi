@@ -1,0 +1,121 @@
+{% extends "base.twig" %}
+{% block description %}Srpsko udruženje za zemljotresno inženjerstvo{% endblock %}
+{% block content %}
+<div class="home">
+    <div class="home--part">
+        <div class="home--part-istaknuta-akcija">
+                {% set IstaknutaAkcija =  fetch('IstaknutaAkcija') %}
+                {% if IstaknutaAkcija.Slika1 %}
+                    <a href="akcije/{{IstaknutaAkcija.Slug}}"><div style="background-image: url('img/{{IstaknutaAkcija.Slika1}}'); background-size: contain;
+                    background-repeat: no-repeat; height: 335px;"></div></a>
+                {% endif %}
+                <div class="title">{{ IstaknutaAkcija.Naslov }}</div>
+                <div class="text">{{IstaknutaAkcija.Text | raw}}  </div>
+                <div class="more"><a href="{{ IstaknutaAkcija.href }}/{{IstaknutaAkcija.Slug}}">Vidi ceo tekst...</a></div>
+
+        </div>
+        <div class="home--part-2">
+                <div class="suzi-akcije"> SUZI Akcije</div>
+                <div class="overflow">
+                        {% for item in fetch('Akcije') %}
+                        <div class="overflow-border">
+                            <div class="naslov"><a href="akcije/{{item.Slug}}">{{ item.Naslov }}</a></div>
+                            {% if item.Slika1 %}
+                            <div class="slika-small"><a href="vest-suzi/{{item.Slug}}"><img class="slika" src="img/{{ item.Slika1 }}"></a></div>
+                            {% endif %}
+                           <div class="dates">{{item.Datum | date("d.m.Y")}}</div>
+                        </div> 
+                        {% endfor %}
+                </div>
+                <a class="more" href= "akcije">Sve SUZI akcije...</a>
+        </div>
+    </div>
+    <div class="home--part2">
+        <div class="home--part2--vesti">
+            <div class="home--part2--vesti--title titles">SUZI Vesti</div>
+            <div class="home--part2--vesti--naslovi">
+                    {% for vesti_suzi in fetch('Vesti_suzi') %}
+                    <div class="home--part2--vesti--naslovi-1">
+                        <div class="naslov sub_titles"><a href="vest-suzi/{{vesti_suzi.Slug}}">{{ vesti_suzi.Naslov }}</a></div>
+                        {% if vesti_suzi.Slika1 %}
+                        <div class="slika-small"><a href="vest-suzi/{{vesti_suzi.Slug}}"><img class="slika" src="img/{{ vesti_suzi.Slika1 }}"></a></div>
+                        {% endif %}
+                        <div class="dates">{{vesti_suzi.Datum | date("d.m.Y")}}</div>
+                    </div>
+                    {% endfor %}
+            </div>
+            <a class="more" href= "vesti">Sve SUZI vesti...</a>
+        </div>
+        <div class="home--part2--vesti">
+                <div class="home--part2--vesti--title titles">Vesti iz sveta</div>
+                <div class="home--part2--vesti--naslovi">
+                    {% for vesti_svet in fetch('Vesti_svet') %}
+                    <div class="home--part2--vesti--naslovi-1">
+                        <div class="sub_titles"><a href="vest-svet/{{vesti_svet.Slug}}">{{ vesti_svet.Naslov }}</a></div>
+                        {% if vesti_svet.Slika1 %}
+                        <div class="slika-small"><a href="vest-svet/{{vesti_svet.Slug}}"><img class="slika" src="img/{{ vesti_svet.Slika1 }}"></a></div>
+                        {% endif %}
+                        <div class="dates">{{vesti_svet.Datum | date("d.m.Y")}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a class="more" href= "vesti">Sve vesti iz sveta...</a>
+        </div>
+        <div class="home--part2--vesti">
+            <div class="home--part2--vesti--title titles">SUZI Obaveštenja</div>
+            <div class="home--part2--vesti--naslovi">
+                    {% for suzi_obavestenja in fetch('Obavestenja') %}
+                    <div class="home--part2--vesti--naslovi-1">
+                        <a href="obavestenja/{{suzi_obavestenja.Slug}}"><div class="sub_titles">{{ suzi_obavestenja.Naslov }}</div></a>
+                        <div class="dates">{{suzi_obavestenja.Datum | date("d.m.Y")}}</div>
+                    </div>
+                    {% endfor %}
+            </div>
+            <a class="more" href= "vesti">Sva SUZI obaveštenja...</a>
+        </div>
+    </div>
+    <div class="home--part2">
+         <div class="home--part2--vesti">
+                <div class="home--part2--vesti--title titles">SUZI prikazi</div>
+                <div class="home--part2--vesti--naslovi">
+                    {% for vesti_prikazi in fetch('Prikazi') %}
+                    <div class="home--part2--vesti--naslovi-1">
+                        <div class="sub_titles"><a href="suzi_prikazi/{{vesti_prikazi.Slug}}">{{ vesti_prikazi.Naslov }}</a></div>
+                        {% if vesti_prikazi.Slika1 %}
+                        <div class="slika-small"><a href="suzi_prikazi/{{vesti_prikazi.Slug}}"><img class="slika" src="img/{{ vesti_prikazi.Slika1 }}"></a></div>
+                        {% endif %}
+                        <div class="dates">{{vesti_prikazi.Datum | date("d.m.Y")}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a class="more" href= "suzi_prikazi">Svi prikazi...</a>
+        </div>
+        <div class="home--part2--vesti">
+                <div class="home--part2--vesti--title titles">SUZI eGlasnik</div>
+                <div class="home--part2--vesti--naslovi">
+                    {% set suzi_eGlasnik =  fetch('eGlasnik')[0] %}
+                    <div class="home--part2--vesti--naslovi-1">
+                        <div class="sub_titles"><a href="img/{{suzi_eGlasnik.Pdf}}" target="_blank">{{ suzi_eGlasnik.Naslov }}</a></div>
+                        {% if suzi_eGlasnik.Slika1 %}
+                        <div class="slika-small"><a href="publikacije/Suzi-Elektronski-glasnik/{{suzi_eGlasnik.Slug}}"><img class="slika" src="img/{{ suzi_eGlasnik.Slika1 }}"></a></div>
+                        {% endif %}
+                        <div class="dates">{{suzi_eGlasnik.Datum | date("d.m.Y")}}</div>
+                    </div>
+                </div>
+                <a class="more" href= "publikacije/Suzi-Elektronski-glasnik">Svi brojevi...</a>
+        </div>
+        <div class="home--part2--vesti">
+                <div class="home--part2--vesti--title titles">Korisni linkovi</div>
+                <div class="home--part2--vesti--naslovi">
+                    {% for korisni_linkovi in fetch('KorisniLinkovi') %}
+                    <div class="home--part2--vesti--naslovi-1">
+                        <div class="sub_titles-link">{{ korisni_linkovi.Naslov }}</div>
+                        <a class="link" href="{{ korisni_linkovi.Link }}">{{ korisni_linkovi.Link }}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

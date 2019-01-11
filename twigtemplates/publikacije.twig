@@ -1,0 +1,180 @@
+{% extends "base.twig" %}
+{% block description %}SUZI publikacije i elektronski glasnik{% endblock %}
+
+{% block content %}
+ 
+  <div class="publikacije">
+    {% set tip= (_GET['1'])?_GET['1']:'Suzi-Publikacije' %}
+      <div class="publikacije--top"> 
+          <div class="publikacije--top-title"><a  href="publikacije/Suzi-Publikacije" class="{{('Suzi-Publikacije'==tip)?'red':''}}">SUZI Publikacije</a></div>
+          <div class="publikacije--top-title"><a  href="publikacije/Ostale-Publikacije" class="{{('Ostale-Publikacije'==tip)?'red':''}}">Ostale Publikacije</a></div>
+          <div class="publikacije--top-title"><a  href="publikacije/Suzi-Elektronski-glasnik" class="{{('Suzi-Elektronski-glasnik'==tip)?'red':''}}">SUZI eGlasnik</a></div> 
+      </div>
+
+      <div class="publikacije--bottom"> 
+      {% if 'Suzi-Publikacije'==tip %}
+        {% set Publikacije_Suzi = fetch("Publikacije_Suzi") %}
+        <div class="{%if ('Suzi-Publikacije'==tip) %} suzi-publikacije {% endif %}">
+          {% for suzi in Publikacije_Suzi %}
+          <div class="suzi-publikacije--clanak">
+            <div style="margin-bottom: 20px;" class="suzi-publikacije--clanak-link">{{suzi.Autor}}: {{ suzi.Naziv }} , {{suzi.Izdavac}}</div>
+            <div style="margin-bottom: 10px;">
+              <a style="margin-left: 20px;" class="preuzmi-publikaciju" href='img/{{suzi.Link}}' target="_blank" >Pogledaj publikaciju</a>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if 'Ostale-Publikacije'==tip %}
+        {% set Publikacije_Ostale = fetch("Publikacije_Ostale") %}
+        <div class="{%if ('Ostale-Publikacije'==tip) %} suzi-publikacije {% endif %}">
+          {% for svet in Publikacije_Ostale %}
+          <div class="suzi-publikacije--clanak">
+            <div style="margin-bottom: 20px;" class="suzi-publikacije--clanak-link">{{svet.Autor}}: {{ svet.Naziv }} , {{svet.Izdavac}}</div>
+            <div style="margin-bottom: 10px;">
+              <a style="margin-left: 20px;" class="preuzmi-publikaciju" href='img/{{svet.Link}}' target="_blank">Pogledaj publikaciju</a>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if 'Suzi-Elektronski-glasnik'==tip %}
+        {% set eGlasnik = fetch("eGlasnik") %}
+        <div class="{%if ('Suzi-Elektronski-glasnik'==tip) %} suzi-publikacije {% endif %}">
+          <div class="suzi-publikacije--clanak--glasnik">
+            <div style="display: flex; flex-direction: column;" class="suzi-publikacije--clanak--glasnik-deo">
+            {% set tip2 = _GET['2'] ? _GET['2'] : eGlasnik[0]['Slug'] %}
+            {% set SelektovaniGlasnik = {} %}
+            {% for glasnik in eGlasnik %}
+              {# {% if (glasnik.Slug == tip2) or ( glasnik.id == tip2) %}    
+                {% set SelektovaniGlasnik = glasnik %}
+              {% endif %} #}
+              <div class="broj-glasnika">
+                <div style="display: flex; width: 100%;">
+                  <a style="flex: 1; cursor: pointer;" href="publikacije/Suzi-Elektronski-glasnik/{{glasnik.Slug}}">{{glasnik.Broj}}</a> 
+                  <a class="broj-glasnika--pdf" href="img/{{glasnik.Pdf}}" target="_blank">Pogledaj PDF <img src="images/pdf.svg"></a>
+                </div>
+              </div>
+              {% if (glasnik.Slug == tip2) or ( glasnik.id == tip2) %}    
+                {% set SelektovaniGlasnik = glasnik %}
+              <div class="broj-glasnika--e-glasnik {{(SelektovaniGlasnik.Slug==tip2)?'active-glasnik':''}}" id="{{SelektovaniGlasnik.id}}">
+                <div class="suzi-publikacije--clanak--glasnik-deo1">
+                  {% if SelektovaniGlasnik.Slika1 %}
+                    <img src="img/{{SelektovaniGlasnik.Slika1}}">
+                  {% endif %}
+                </div>
+                <div class="suzi-publikacije--clanak--glasnik-deo2">
+                  <div class="suzi-publikacije--clanak--glasnik-deo2--naslov">{{SelektovaniGlasnik.Naslov}}</div>
+                  <div class="suzi-publikacije--clanak--glasnik-deo2--text">{{SelektovaniGlasnik.Text | raw}}</div>
+                </div>
+              </div>
+              {% endif %}
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      </div>
+  </div>
+  <div class="publikacije--mobile">
+      {% set Publikacije_Suzi = fetch("Publikacije_Suzi") %}
+          <div class="publikacije--top-title">SUZI Publikacije</div>
+          {% for suzi in Publikacije_Suzi %}
+          <div class="suzi-publikacije--clanak">
+            <div style="margin-bottom: 20px;" class="suzi-publikacije--clanak-link">{{suzi.Autor}}: {{ suzi.Naziv }} , {{suzi.Izdavac}}</div>
+            <div style="margin-bottom: 10px;">
+              <a style="margin-left: 20px;" class="preuzmi-publikaciju" href='img/{{suzi.Link}}' target="_blank" >Pogledaj publikaciju</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% set Publikacije_Ostale = fetch("Publikacije_Ostale") %}
+          <div class="publikacije--top-title">Ostale Publikacije</div>
+          {% for svet in Publikacije_Ostale %}
+          <div class="suzi-publikacije--clanak">
+            <div style="margin-bottom: 20px;" class="suzi-publikacije--clanak-link">{{svet.Autor}}: {{ svet.Naziv }} , {{svet.Izdavac}}</div>
+            <div style="margin-bottom: 10px;">
+              <a style="margin-left: 20px;" class="preuzmi-publikaciju" href='img/{{svet.Link}}' target="_blank">Pogledaj publikaciju</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% set eGlasnik = fetch("eGlasnik") %}
+          <div class="publikacije--top-title">SUZI eGlasnik</div> 
+
+          
+        <div class="{%if ('Suzi-Elektronski-glasnik'==tip) %} suzi-publikacije {% endif %}">
+          <div class="suzi-publikacije--clanak--glasnik">
+          <div style="display: flex; flex-direction: column;" id="glasnik-anim" class="suzi-publikacije--clanak--glasnik-deo">
+          {% set tip2 = _GET['2'] ? _GET['2'] : eGlasnik[0]['Slug'] %}
+          {% set SelektovaniGlasnik = {} %}
+          {% for glasnik in eGlasnik %}
+            
+              <div class="broj-glasnika">
+                <a class="broj-glasnika--broj" id="m{{glasnik.id}}" href="publikacije/Suzi-Elektronski-glasnik/{{glasnik.Slug}}">{{glasnik.Broj}}</a>
+                <a class="broj-glasnika--pdf" href="img/{{glasnik.Pdf}}" target="_blank">Pogledaj PDF <img src="images/pdf.svg"></a> 
+              </div>
+            
+          </div>
+          {% if (glasnik.Slug == tip2) or ( glasnik.id == tip2) %}    
+              {% set SelektovaniGlasnik = glasnik %}
+          <div class="glasnik-text {{(SelektovaniGlasnik.Slug==tip2)?'active-glasnik-mob':''}}" >
+            <div class="suzi-publikacije--clanak--glasnik-deo1 slika-small">
+              {% if SelektovaniGlasnik.Slika1 %}
+                <img class="slika" src="img/{{SelektovaniGlasnik.Slika1}}">
+              {% endif %}
+            </div>
+            <div class="suzi-publikacije--clanak--glasnik-deo2">
+              <div class="suzi-publikacije--clanak--glasnik-deo2--naslov">{{SelektovaniGlasnik.Naslov}}</div>
+              <div class="suzi-publikacije--clanak--glasnik-deo2--text">{{SelektovaniGlasnik.Text | raw}}</div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          </div>
+        </div>
+
+  </div>
+<script>
+   
+    {# let eGlasnikD = document.getElementById('eGlasnikD');
+    let glasnikD = document.getElementById('js-glasnikD');
+    let eGlasnikM = document.getElementById('eGlasnikM');
+    let glasnikM = document.getElementById('js-glasnikM');
+
+    if (glasnikD) {
+      glasnikD.addEventListener('click', function(){
+          if (eGlasnikD.classList.contains('active-glasnik')) {
+              eGlasnikD.classList.remove('active-glasnik');
+              glasnikD.classList.remove('red');
+          }
+          else {
+              eGlasnikD.classList.add('active-glasnik');
+              glasnikD.classList.add('red');
+          }
+      });
+    };
+    if (glasnikM) {
+      glasnikM.addEventListener('click', function(){
+          if (eGlasnikM.classList.contains('active-glasnik-mob')) {
+              eGlasnikM.classList.remove('active-glasnik-mob');
+              glasnikM.classList.remove('red');
+          }
+          else {
+              eGlasnikM.classList.add('active-glasnik-mob');
+              glasnikM.classList.add('red');
+          }
+      });
+    }; #}
+    var el_url_d = document.getElementsByClassName("active-glasnik");
+    if (el_url_d){
+      el_url_d[0].scrollIntoView();
+    };
+    var el_url_m = document.getElementsByClassName("active-glasnik-mob");
+    if (el_url_m){
+      el_url_m[0].scrollIntoView();
+    }
+
+</script>
+{% endblock %}
