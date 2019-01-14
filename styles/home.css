@@ -143,9 +143,17 @@
   padding: 15px 0;
 }
 .home--part-2 .overflow-border-slika {
-  width: 20%;
-  height: 100%;
+  width: 70px;
+  height: 60px;
   float: left;
+  margin-right: 10px;
+}
+.home--part-2 .overflow-border-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 .home--part-2 .naslov {
   font-size: 14px;
@@ -154,6 +162,7 @@
   color: #000000;
   display: flex;
   margin-right: 10px;
+  align-items: center;
 }
 .home--part2 {
   max-height: 550px;
