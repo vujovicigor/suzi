@@ -349,6 +349,10 @@ img {
     max-height: 200px;
   }
 }
+.visina {
+  height: 370px;
+  width: 450px;
+}
 .home {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -360,7 +364,7 @@ img {
   padding: 175px 90px 4% 90px;
 }
 .home--part {
-  max-height: 550px;
+  max-height: 400px;
   height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -371,22 +375,31 @@ img {
   border-bottom: 1px solid #d0d0d0;
 }
 .home--part-istaknuta-akcija {
+  display: flex;
   width: 66%;
   padding-bottom: 20px;
 }
+.home--part-istaknuta-akcija-textovi {
+  height: 376px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
 .home--part-istaknuta-akcija .title {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
   color: #202124;
-  line-height: 1.71;
-  padding: 20px 0;
+  line-height: 1.41;
+  padding-bottom: 20px;
+  flex: 1;
 }
 .home--part-istaknuta-akcija .text {
   font-size: 13px;
   line-height: 1.71;
   color: #000000;
   height: 90px;
-  overflow: auto;
+  overflow: hidden;
 }
 .home--part-2 {
   width: 32%;
@@ -477,13 +490,16 @@ img {
   line-height: 1.71;
   font-weight: bold;
   color: #f92525;
-  padding: 20px 0;
+  padding-top: 20px;
   text-decoration: none;
   cursor: pointer;
 }
 @media only screen and (max-width: 1150px) {
   .home--part {
     max-height: 580px;
+  }
+  .home--part-istaknuta-akcija .title {
+    font-size: 16px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -505,10 +521,10 @@ img {
     padding-bottom: 0;
   }
   .home--part-istaknuta-akcija .title {
-    font-size: 14px;
+    font-size: 20px;
   }
   .home--part-istaknuta-akcija .text {
-    height: 115px;
+    height: 110px;
     font-size: 11px;
   }
   .home--part-istaknuta-akcija .more {
@@ -541,6 +557,25 @@ img {
   }
   .home--part2--vesti .more {
     font-size: 12px;
+  }
+  .more {
+    padding-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 730px) {
+  .home--part-istaknuta-akcija {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home--part-istaknuta-akcija-textovi {
+    height: auto;
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .visina {
+    height: 270px!important;
+    width: 320px!important;
   }
 }
 @media only screen and (max-width: 360px) {

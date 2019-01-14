@@ -1,4 +1,8 @@
 @import 'variables';
+.visina{
+    height: 370px;
+    width: 450px;
+}
 .home{
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9,7 +13,7 @@
             flex-direction: column;
             padding: 175px 90px 4% 90px;
     &--part{
-        max-height: 550px;
+        max-height: 400px;
         height: auto;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -19,21 +23,30 @@
                 justify-content: space-between;
                 border-bottom: 1px solid @gray-light;
         &-istaknuta-akcija{
+            display: flex;
             width: 66%;
             padding-bottom: 20px;
+            &-textovi{
+                height: 376px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                overflow: hidden;
+            }
             .title{
-                font-size: 14px;
+                font-size: 20px;
                 font-weight: bold;
                 color: @gray-dark;
-                line-height: 1.71;
-                padding: 20px 0;
+                line-height: 1.41;
+                padding-bottom: 20px;
+                flex: 1;
             }
             .text{
                 font-size: 13px;
                 line-height: 1.71;
                 color: @black;
                 height: 90px;
-                overflow: auto;
+                overflow: hidden;
             }
         }
         &-2{
@@ -143,7 +156,7 @@
     line-height: 1.71;
     font-weight: bold;
     color: @red;
-    padding: 20px 0;
+    padding-top: 20px;
     text-decoration: none;
     cursor: pointer;
   }
@@ -151,6 +164,11 @@
     .home{
         &--part{
             max-height: 580px;
+            &-istaknuta-akcija{
+                .title{
+                    font-size: 16px;
+                }
+            }
         }
     }
   }
@@ -170,10 +188,10 @@
                 border-bottom: 1px solid @gray-light;
                 padding-bottom: 0;
                 .title{
-                    font-size: 14px;
+                    font-size: 20px;
                 }
                 .text{
-                    height: 115px;
+                    height: 110px;
                     font-size: 11px
                 }
                 .more{
@@ -209,6 +227,29 @@
                 }
             }
         }
+    }
+    .more{
+        padding-bottom: 20px;
+    }
+  }
+  @media only screen and (max-width: 730px) {
+      .home{
+          &--part{
+              &-istaknuta-akcija{
+                  flex-direction: column;
+                  align-items: center;
+                  &-textovi{
+                      height: auto;
+                      margin-top: 20px;
+                  }
+              }
+          }
+      }
+  }
+  @media only screen and (max-width: 420px) {
+    .visina{
+        height: 270px!important;
+        width: 320px!important;
     }
   }
   @media only screen and (max-width: 360px) {
