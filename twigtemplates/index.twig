@@ -6,12 +6,14 @@
         <div class="home--part-istaknuta-akcija">
                 {% set IstaknutaAkcija =  fetch('IstaknutaAkcija') %}
                 {% if IstaknutaAkcija.Slika1 %}
-                    <a href="akcije/{{IstaknutaAkcija.Slug}}"><div style="background-image: url('img/{{IstaknutaAkcija.Slika1}}'); background-size: contain;
-                    background-repeat: no-repeat; height: 335px;"></div></a>
+                    <a class="visina"  href="akcije/{{IstaknutaAkcija.Slug}}"><div class="visina" style="background-image: url('img/{{IstaknutaAkcija.Slika1}}'); background-size: contain;
+                    background-repeat: no-repeat;"></div></a>
                 {% endif %}
-                <div class="title">{{ IstaknutaAkcija.Naslov }}</div>
-                <div class="text">{{IstaknutaAkcija.Text | raw}}  </div>
-                <div class="more"><a href="{{ IstaknutaAkcija.href }}/{{IstaknutaAkcija.Slug}}">Vidi ceo tekst...</a></div>
+                <div class="home--part-istaknuta-akcija-textovi">
+                    <div class="title">{{ IstaknutaAkcija.Naslov }}</div>
+                    <div class="text">{{IstaknutaAkcija.Text | raw}}  </div>
+                    <div class="more"><a href="{{ IstaknutaAkcija.href }}/{{IstaknutaAkcija.Slug}}">Vidi ceo tekst...</a></div>
+                </div>
 
         </div>
         <div class="home--part-2">
@@ -20,7 +22,7 @@
                         {% for item in fetch('Akcije') %}
                         <div class="overflow-border">
                             <div class="naslov">
-                                <img class="overflow-border-slika" src="img/{{ item.Slika1 }}">
+                                <img class="overflow-border-slika" src="img/{{ item.SlikaMala }}">
                                 <div>
                                     <div><a class="overflow-border-text" href="akcije/{{item.Slug}}">{{ item.Naslov }}</a></div>
                                     <div class="dates">{{item.Datum | date("d.m.Y")}}</div>    
