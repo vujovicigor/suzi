@@ -37,7 +37,7 @@
             }
         }
         &-2{
-           width: 30%;
+           width: 32%;
            display: -webkit-box;
            display: -ms-flexbox;
            display: flex;
@@ -60,6 +60,19 @@
                 &-border{
                     border-bottom: 1px solid @gray-light;
                     padding: 15px 0;
+                    &-slika{
+                        width: 70px;
+                        height: 60px;
+                        float: left;
+                        margin-right: 10px;
+                    }
+                    &-text{
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        -webkit-line-clamp: 2;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                    }
                 }
            }
            .naslov{
@@ -67,8 +80,9 @@
             font-weight: bold;
             line-height: 1.71;
             color: @black;
-            
+            display: flex;
             margin-right: 10px;
+            align-items: center;
 
             // &:last-child{
             //     border-bottom: none;

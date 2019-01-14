@@ -19,11 +19,17 @@
                 <div class="overflow">
                         {% for item in fetch('Akcije') %}
                         <div class="overflow-border">
-                            <div class="naslov"><a href="akcije/{{item.Slug}}">{{ item.Naslov }}</a></div>
-                            {% if item.Slika1 %}
+                            <div class="naslov">
+                                <img class="overflow-border-slika" src="img/{{ item.Slika1 }}">
+                                <div>
+                                    <div><a class="overflow-border-text" href="akcije/{{item.Slug}}">{{ item.Naslov }}</a></div>
+                                    <div class="dates">{{item.Datum | date("d.m.Y")}}</div>    
+                                </div>
+                            </div>
+                            {# {% if item.Slika1 %}
                             <div class="slika-small"><a href="vest-suzi/{{item.Slug}}"><img class="slika" src="img/{{ item.Slika1 }}"></a></div>
-                            {% endif %}
-                           <div class="dates">{{item.Datum | date("d.m.Y")}}</div>
+                            {% endif %} #}
+                           {# <div class="dates">{{item.Datum | date("d.m.Y")}}</div> #}
                         </div> 
                         {% endfor %}
                 </div>
@@ -97,7 +103,7 @@
                     <div class="home--part2--vesti--naslovi-1">
                         <div class="sub_titles"><a href="img/{{suzi_eGlasnik.Pdf}}" target="_blank">{{ suzi_eGlasnik.Naslov }}</a></div>
                         {% if suzi_eGlasnik.Slika1 %}
-                        <div class="slika-small"><a href="publikacije/Suzi-Elektronski-glasnik/{{suzi_eGlasnik.Slug}}"><img class="slika" src="img/{{ suzi_eGlasnik.Slika1 }}"></a></div>
+                        <div class="slika-small"><a href="img/{{suzi_eGlasnik.Pdf}}" target="_blank"><img class="slika" src="img/{{ suzi_eGlasnik.Slika1 }}"></a></div>
                         {% endif %}
                         <div class="dates">{{suzi_eGlasnik.Datum | date("d.m.Y")}}</div>
                     </div>

@@ -20,10 +20,10 @@
                             <div class="akcije--mobile"> 
                             <div class="akcije--mobile--slika">
                                 {% if SelektovanaAkcija.Slika1 %} 
-                                    <img class="akcije--mobile--slika--img" src="img/{{SelektovanaAkcija.Slika1}}">
+                                    <a data-lightbox="gallery" href="img/{{SelektovanaAkcija.Slika1}}"><img class="akcije--mobile--slika--img" src="img/{{SelektovanaAkcija.Slika1}}"></a>
                                 {% endif %}
                                 {% if SelektovanaAkcija.Slika2 %} 
-                                    <img class="akcije--mobile--slika--img" src="img/{{SelektovanaAkcija.Slika2}}">
+                                    <a data-lightbox="gallery" href="img/{{SelektovanaAkcija.Slika2}}"><img class="akcije--mobile--slika--img" src="img/{{SelektovanaAkcija.Slika2}}"></a>
                                 {% endif %}
                                 </div>
                                 <div class="akcije--mobile--text">{{SelektovanaAkcija.Text | raw }}</div>
@@ -35,12 +35,12 @@
         </div>
         <div class="akcije--right"> 
             <div class="akcije--right--text">
-                <div style="float: left; max-width: 250px; margin-right: 3%;">
+                <div style="float: left; max-width: 350px; margin-right: 3%;">
                     {% if SelektovanaAkcija.Slika1 %}
-                        <img class="akcije--right--slika" src="img/{{SelektovanaAkcija.Slika1}}">
+                        <a data-lightbox="gallery" href="img/{{SelektovanaAkcija.Slika1}}"><img class="akcije--right--slika" src="img/{{SelektovanaAkcija.Slika1}}"></a>
                     {% endif %}
                     {% if SelektovanaAkcija.Slika2 %}
-                        <img class="akcije--right--slika" src="img/{{SelektovanaAkcija.Slika2}}">
+                        <a data-lightbox="gallery" href="img/{{SelektovanaAkcija.Slika2}}"><img class="akcije--right--slika" src="img/{{SelektovanaAkcija.Slika2}}"></a>
                     {% endif %}
                 </div>
                 {{SelektovanaAkcija.Text | raw }}
