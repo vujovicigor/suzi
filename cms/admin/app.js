@@ -3,6 +3,23 @@ jQuery = $;
 var Ractive  = require("ractive");
 window.Ractive = Ractive;
 require('./js/selectize.min.js');
+
+/*
+var CSSJS = require("jotform-css.js");
+var CSS = new CSSJS.cssjs();
+SummerNoteSharedStyle = []
+fetch('../sharedstyle.css')
+  .then(response => response.text())
+  .then((cssString) => {
+    console.log(cssString)
+    var parsed = CSS.parseCSS(cssString);
+    console.log(parsed);
+    parsed.forEach(function(r){
+      SummerNoteSharedStyle.push(r.selector.substring(1)) // TODO: need to traverse subStyles recursively
+      // save to key/val, trim . , trim after :...
+    })
+  })
+*/
 Ractive.DEBUG = !!(window.location.hostname == "127.0.0.1" || window.location.hostname == "localhost");
 //HOSTNAME = Ractive.DEBUG?'http://test.mobilearea.info/test/':'';
 ISMOBILE = (window.innerWidth <= 800);
@@ -80,12 +97,59 @@ Ractive.prototype.unset = function(keypath){
     return this.update(keypath);
 }
 
+
+// Drag Drop from https://github.com/andyhall/ractive-drag-events/blob/master/ractive-drag-events.js
+var eventNames = ['dragstart', 'dragenter', 'dragover', 'dragleave', 'drop', 'dragend']
+var niceNames = ['start', 'enter', 'over', 'leave', 'drop', 'end']
+
+function mainHandler(node, fire, event) {
+  if (event.type =='dragstart') {
+    //console.log(node)
+    node.style.background = 'rgba(255,255,255,0)';
+    node.getElementsByClassName('img')[0].style.opacity = 0.4;
+    //node.getElementsByClassName('img')[0].style.transform = "scale(0.3)";
+    setTimeout(function(){
+      node.style.opacity = 1;
+      node.getElementsByClassName('img')[0].style.opacity = 1;  
+    },100)
+          // store a ref. on the dragged elem
+//          dragged = event.target;
+          // make it half transparent
+//          event.target.style.opacity = .1;
+  }
+//  event.target.style.background = "red";
+  var type = niceNames[eventNames.indexOf(event.type)]
+  fire({
+    node: node,
+    type: type,
+    target: this,
+    original: event
+  });
+}
+
+Ractive.events.dragndrop = function (node, fire) {
+  var boundHandler = mainHandler.bind(null, node, fire)
+
+  for (var i = 0; i < eventNames.length; i++) {
+    node.addEventListener(eventNames[i], boundHandler)
+  }
+
+  return {
+    teardown: function () {
+      for (var i = 0; i < eventNames.length; i++) {
+        node.removeEventListener(eventNames[i], boundHandler)
+      }
+    }
+  }
+}
+
+
 Ractive.prototype.fetch2 = window.fetch2;
 
 Ractive.prototype.focusFirstElement = function(self){
     var self = self || this;
     var focusableElements = self.el.querySelectorAll('button, [href], input:not([type=checkbox]), select, textarea, [tabindex]:not([tabindex="-1"])')
-    console.log('focusFirstElement', self, focusableElements)
+    //console.log('focusFirstElement', self, focusableElements)
     if (!ISMOBILE && focusableElements && focusableElements.length>0) focusableElements[0].focus();
     self.keydownhandler = function(e){
         //console.log(e)
@@ -227,7 +291,9 @@ Ractive.components.Schema                  =  require('./Schema.html');
 Ractive.components.SchemaNew               =  require('./SchemaNew.html');
 Ractive.components.SchemaFiledAdd          =  require('./SchemaFiledAdd.html');
 Ractive.components.map                     =  require('./map.html');
-Ractive.components.HtmlEdit                =  require('./HtmlEdit.html');
+//Ractive.components.HtmlEdit                =  require('./HtmlEdit.html');
+Ractive.components.HtmlEdit                =  require('./HtmlEditFrame.html');
+GLOBALHtmlEditCounter = 1;
 Ractive.components.Selectize               =  require('./Selectize.html');
 Ractive.components.ShowImage               =  require('./ShowImage.html');
 Ractive.components.UserList                =  require('./user/UserList.html');
