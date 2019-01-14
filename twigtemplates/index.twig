@@ -9,12 +9,13 @@
                     <a class="visina"  href="akcije/{{IstaknutaAkcija.Slug}}"><div class="visina" style="background-image: url('img/{{IstaknutaAkcija.Slika1}}'); background-size: contain;
                     background-repeat: no-repeat;"></div></a>
                 {% endif %}
-                <div class="home--part-istaknuta-akcija-textovi">
-                    <div class="title">{{ IstaknutaAkcija.Naslov }}</div>
-                    <div class="text">{{IstaknutaAkcija.Text | raw}}  </div>
+                <div style="display: flex; flex-direction: column;">
+                    <div class="home--part-istaknuta-akcija-textovi">
+                        <div class="title">{{ IstaknutaAkcija.Naslov }}</div>
+                        <div class="text">{{IstaknutaAkcija.Text | raw}}  </div>
+                    </div>
                     <div class="more"><a href="{{ IstaknutaAkcija.href }}/{{IstaknutaAkcija.Slug}}">Vidi ceo tekst...</a></div>
                 </div>
-
         </div>
         <div class="home--part-2">
                 <div class="suzi-akcije"> SUZI Akcije</div>
