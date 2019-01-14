@@ -13,10 +13,10 @@
     {% if obavestenja.Slika1 or obavestenja.Slika2 %}
       <div class="vest--container-imgs">
         {% if obavestenja.Slika1 %}
-          <img class="" src="img/{{ obavestenja.Slika1 }}" alt="SUZI Vest" />
+          <a data-lightbox="gallery" href="img/{{ obavestenja.Slika1 }}"><img class="" src="img/{{ obavestenja.Slika1 }}" alt="SUZI Vest"></a>
         {% endif %}
         {% if obavestenja.Slika2 %}
-          <img class="" src="img/{{ obavestenja.Slika2 }}" />
+          <a data-lightbox="gallery" href="img/{{ obavestenja.Slika2 }}"><img class="" src="img/{{ obavestenja.Slika2 }}"></a>
         {% endif %}
       </div>
     {% endif %}
