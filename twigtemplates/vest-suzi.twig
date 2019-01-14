@@ -13,10 +13,10 @@
     {% if suzi_vesti.Slika1 or suzi_vesti.Slika2 %}
       <div class="vest--container-imgs">
         {% if suzi_vesti.Slika1 %}
-          <img class="" src="img/{{ suzi_vesti.Slika1 }}" alt="SUZI Vest" />
+          <a data-lightbox="gallery" href="img/{{ suzi_vesti.Slika1 }}"><img src="img/{{ suzi_vesti.Slika1 }}" alt="SUZI Vest"></a>
         {% endif %}
         {% if suzi_vesti.Slika2 %}
-          <img class="" src="img/{{ suzi_vesti.Slika2 }}" />
+          <a data-lightbox="gallery" href="img/{{ suzi_vesti.Slika2 }}"><img style="margin-left: 15px;" src="img/{{ suzi_vesti.Slika2 }}"></a>
         {% endif %}
       </div>
     {% endif %}

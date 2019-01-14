@@ -10,6 +10,7 @@
   color: #202124;
 }
 .sub_titles {
+  width: 95%;
   font-size: 14px;
   font-weight: bold;
   line-height: 1.71;
@@ -49,8 +50,8 @@
   color: #000000;
 }
 .slika {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 250px;
+  max-width: 250px;
 }
 .slika-small {
   max-height: 330px;
@@ -61,7 +62,7 @@
 }
 @media screen and (max-width: 960px) {
   .slika-small {
-    height: 300px;
+    max-height: 300px;
   }
   .plain-text {
     font-size: 11px;
@@ -71,8 +72,11 @@
   }
 }
 @media screen and (max-width: 360px) {
+  .slika {
+    max-height: 200px;
+  }
   .slika-small {
-    height: 200px;
+    max-height: 200px;
   }
 }
 .kontakt {
@@ -100,6 +104,13 @@
   line-height: 2;
   color: #000000;
   padding: 20px 0;
+}
+.kontakt--left--info-2 {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 2;
+  color: #000000;
+  display: flex;
 }
 .kontakt--right {
   width: 65%;
